@@ -13,11 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Google Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
-        with:
-          project_id: ${{ secrets.gcpProjectId }}  # Set your project ID in secrets
-          credentials_json: ${{ secrets.gcpServiceAccountKey }}
+      - name: Authenticate to Google Cloud
+        run: |
+          echo "$GOOGLE_CREDENTIALS" > ${HOME}/gcloud-key.json
+          gcloud auth activate-service-account --key-file=${HOME}/gcloud-key.json
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GCPSERVICEACCOUNTKEY }} 
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
