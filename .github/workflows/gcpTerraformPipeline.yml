@@ -18,7 +18,7 @@ jobs:
           echo "$GCP_SERVICE_ACCOUNT_KEY" > ${HOME}/gcloud-key.json
           gcloud auth activate-service-account --key-file=${HOME}/gcloud-key.json
         env:
-          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.gcpServiceAccountKey }} 
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.gcp_service_key }} 
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
