@@ -1,5 +1,5 @@
 provider "google" {
-    credentials = file("./manifest-ocean-440312-h9-76a2f8c5d535.json")
+    credentials = file("./anifest-ocean-440312-h9-6cee7d6e34b0.json")
     project = var.projectId
     region = var.region
 }
