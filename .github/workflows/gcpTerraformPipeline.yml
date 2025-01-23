@@ -17,6 +17,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
         with:
            project_id: ${{ secrets.GCP_PROJECT_ID }} 
+           secret_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
