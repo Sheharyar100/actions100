@@ -30,6 +30,10 @@ jobs:
         run: terraform init
         working-directory: ./testing creds
 
+      - name: Terrafrom refresh
+        run: terraform refresh
+        working-directory: ./testing creds
+
       - name: Terraform plan
         run: terraform plan
         working-directory: ./testing creds
@@ -37,3 +41,7 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
         working-directory: ./testing creds
+
+      - name: Terraform destroy
+        run: terraform destroy -auto-approve
+        working-directory: ./testing creds  
