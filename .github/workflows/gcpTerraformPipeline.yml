@@ -13,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3 
 
-      - name: Set up Google Cloud credentials
-        uses: google-github-actions/setup-gcloud@v2
+      - id: auth
+        uses: google-github-actions/auth@v2.0.0  
         with:
-           project_id: ${{ secrets.GCP_PROJECT_ID }} 
-           secret_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          workload_identity_provider: 'projects/604435195200/locations/global/workloadIdentityPools/wifp100/providers/github'
+          service_account: 'sheharyar123@manifest-ocean-440312-h9.iam.gserviceaccount.com'
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
