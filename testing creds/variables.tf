@@ -34,7 +34,3 @@ variable "region" {
     type = string
     default = "us-central1"
 }
-
-variable "sa_key" {
-    type = string
-}
