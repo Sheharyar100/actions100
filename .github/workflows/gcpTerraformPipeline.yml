@@ -8,6 +8,8 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Add the id-token permission
 
     steps:
       - name: Checkout code
@@ -22,7 +24,7 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.6.0 # Set the Terraform version you need
+          terraform_version: 1.6.0  # Set the Terraform version you need
 
       - name: Terraform Init
         run: terraform init
@@ -33,6 +35,5 @@ jobs:
         working-directory: ./testing creds
 
       - name: Terraform Apply
-        run: terraform apply -var-file=variables.tfvars -auto-approve
+        run: terraform apply -auto-approve
         working-directory: ./testing creds
-        # Note: Consider removing -auto-approve if you want manual approval for apply
