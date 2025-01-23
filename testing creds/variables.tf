@@ -20,7 +20,7 @@ variable "instanceNameForComputeInstance" {
 variable "imageNameForComputeInstance" {
     description = "Stores image name for the bastion host server"
     type = string
-    default = "Debian GNU/Linux 12 (bookworm)"
+    default = "Debian GNU/Linux 11 (bullseye)"
 }
 
 variable "projectId" {
