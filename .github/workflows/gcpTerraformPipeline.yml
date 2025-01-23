@@ -28,6 +28,10 @@ jobs:
         run: terraform init
         working-directory: ./testing creds
 
+      - name: Terraform plan
+        run: terraform plan
+        working-directory: ./testing creds
+
       - name: Terraform Apply
         run: terraform apply -var-file=variables.tfvars -auto-approve
         working-directory: ./testing creds
